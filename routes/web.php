@@ -11,16 +11,17 @@
 |
 */
 
-/* 
-| GET Routes
-*/
+Route::get('/', 'HomeController@index');
 
-Route::get('/', 'PageController@index');
-Route::get('/about', 'PageController@about');
+Route::get('/about', 'AboutController@index');
+
 Route::get('/contact', 'ContactController@index');
-
-/* 
-| POST routes
-*/
-
+Route::get('/contact/thankyou', 'ContactController@thankyou');
+Route::get('/contact/create', 'ContactController@create');
 Route::post('/contact', 'ContactController@store');
+Route::get('/contact/{contact}/edit', 'ContactController@edit');
+Route::put('/contact/{contact}', 'ContactController@update');
+Route::delete('/contact/{contact}', 'ContactController@destroy');
+
+
+Auth::routes();
